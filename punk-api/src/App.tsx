@@ -1,13 +1,15 @@
-import { useState } from 'react'
+//import { useState } from 'react'
 import './App.scss'
+import CardList from './components/CardList/CardList'
+import beers from './data/beer'
 
 function App() {
-  const [count, setCount] = useState(0)
+  //const [] = useState(0)
 
   return (
 
       <div>
-      
+        <CardList info={beers} />
       </div>
     
   )
