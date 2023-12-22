@@ -10,7 +10,7 @@ const Search = ({searchTerm, handleInput}: SearchProps) => {
     
   return (
     <section className="search-bar">
-    <input type="text" placeholder="🔎 Search.."
+    <input className="search-bar__bar" type="text" placeholder="🔎 Search.."
         value={searchTerm}
         onInput={handleInput}/>
      </section>

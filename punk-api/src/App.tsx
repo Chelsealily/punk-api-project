@@ -1,10 +1,12 @@
 import "./App.scss";
-import {useEffect, useState } from "react";
+import {FormEvent, useEffect, useState } from "react";
 import CardList from "./components/CardList/CardList";
 import { Beer } from "./types/Beer";
+import Search from "./components/Search/Search";
 
 function App() {
   const [beers, setBeers] = useState<Beer[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const getBeers = async () => {
     const url = "https://api.punkapi.com/v2/beers";
@@ -17,12 +19,25 @@ function App() {
     getBeers();
   }, []);
 
-  return (
+  const handleInput = (event: FormEvent<HTMLInputElement>) => {
+    const input = event.currentTarget.value.toLowerCase();
+    setSearchTerm(input);
+}
 
-      <div>
+  const filteredBeer = beers.filter(product =>
+  product.name.toLowerCase().includes(searchTerm)
+)
+
+  return (
+      <section className="page-container" >
+        <div className="nav">
         <img className="logo" src="src/assets/images/logo.jpeg" alt="Brewdog logo"/>
-        <CardList info={beers}/>
+        <Search searchTerm={searchTerm} handleInput={handleInput}/>
+       </div>
+       <div className="product-container">
+        {filteredBeer.map((product) => (<CardList name={product.name} image_url={product.image_url} tagline={product.tagline}/>))}
       </div>
+      </section>
     
   )
 }

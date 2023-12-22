@@ -1,22 +1,21 @@
 import "./CardList.scss"
-import { Beer } from "../../types/Beer"
 import Card from "../Card/Card"
 
 type CardListProps = {
-    info: Beer[];
+    name: string;
+    image_url: string;
+    tagline: string;
 }
 
-const CardList = ({ info }: CardListProps) => {
+const CardList = ({ name, image_url, tagline }: CardListProps) => {
     return (
       <div className="cardlist-container">
-        {info.map((card) => (
           <Card
-            key={card.id}
-            name={card.name}
-            image={card.image_url}
-            tagline={card.tagline}
+            name={name}
+            image={image_url}
+            tagline={tagline}
           />
-        ))}
+
       </div>
     );
   };

@@ -1,7 +1,12 @@
 export type Beer = {
     id: number;
     name: string;
+    image_url: string;
     tagline: string;
+}
+
+export type BeerExt = {
+    BeerInfo:Beer
     first_brewed: string;
     description: string;
     image_url: string;
