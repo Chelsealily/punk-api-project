@@ -1,15 +1,27 @@
-//import { useState } from 'react'
 import './App.scss'
-import CardList from './components/CardList/CardList'
-import beers from './data/beer'
+import {useEffect, useState } from 'react';
+import CardList from './components/CardList/CardList';
+import { Beer } from './types/beer';
 
 function App() {
-  //const [] = useState(0)
+  const [beers, setBeers] = useState<Beer[]>([]);
+
+  const getBeers = async () => {
+    const url = "https://api.punkapi.com/v2/beers?per_page=80";
+    const res = await fetch(url);
+    const data= await res.json();
+    setBeers(data);
+  };
+
+  useEffect(() => {
+    getBeers();
+  }, []);
 
   return (
 
       <div>
-        <CardList info={beers} />
+        <h1>Brewdog</h1>
+        <CardList info={beers}/>
       </div>
     
   )

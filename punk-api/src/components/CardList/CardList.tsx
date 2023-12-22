@@ -1,5 +1,5 @@
 import "./CardList.scss"
-import { Beer } from "../../types/Beer"
+import { Beer } from "../../types/beer"
 import Card from "../Card/Card"
 
 type CardListProps = {
