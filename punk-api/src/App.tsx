@@ -1,13 +1,13 @@
-import './App.scss'
-import {useEffect, useState } from 'react';
-import CardList from './components/CardList/CardList';
-import { Beer } from './types/beer';
+import "./App.scss";
+import {useEffect, useState } from "react";
+import CardList from "./components/CardList/CardList";
+import { Beer } from "./types/Beer";
 
 function App() {
   const [beers, setBeers] = useState<Beer[]>([]);
 
   const getBeers = async () => {
-    const url = "https://api.punkapi.com/v2/beers?per_page=80";
+    const url = "https://api.punkapi.com/v2/beers";
     const res = await fetch(url);
     const data= await res.json();
     setBeers(data);
@@ -20,7 +20,7 @@ function App() {
   return (
 
       <div>
-        <h1>Brewdog</h1>
+        <img className="logo" src="src/assets/images/logo.jpeg" alt="Brewdog logo"/>
         <CardList info={beers}/>
       </div>
     
