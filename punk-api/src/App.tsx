@@ -3,6 +3,7 @@ import {FormEvent, useEffect, useState } from "react";
 import CardList from "./components/CardList/CardList";
 import { Beer } from "./types/Beer";
 import Search from "./components/Search/Search";
+import ScrollToTop from "react-scroll-to-top";
 
 function App() {
   const [beers, setBeers] = useState<Beer[]>([]);
@@ -37,6 +38,7 @@ function App() {
        <div className="product-container">
         {filteredBeer.map((product) => (<CardList name={product.name} image_url={product.image_url} tagline={product.tagline}/>))}
       </div>
+      <ScrollToTop smooth color="purple"/>
       </section>
     
   )
