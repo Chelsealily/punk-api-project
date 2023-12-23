@@ -4,7 +4,12 @@
     height:50vh;
     text-align: center;
     background-color: rgb(202, 202, 202);
-}      
+}
+
+.beer-card:hover { 
+    background-color: rgb(126, 201, 203);
+    border: 3px solid burlywood;
+  }
 
 .beer-card__pic {
     height: 30vh;
