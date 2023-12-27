@@ -1,8 +1,11 @@
 .search-bar {
     padding-top: 90px;
     padding-right: 100px;
+    
 }
 
 .search-bar__bar {
     border-radius: 5%;
+    border: 5px solid black;
+    font-weight: bold;
 }

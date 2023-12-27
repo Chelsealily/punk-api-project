@@ -18,9 +18,7 @@ const Nav = ({
           alt="Brewdog logo"
         />
       </div>
-      <div className="nav__lower">
-        <Search searchTerm={searchTerm} handleInput={handleInput} />
-        Reset button?
+      <div className="nav__middle">
         <section className="checkbox">
           <div className="checkbox__ABV">
             <label className="checkbox__ABV--label">{"Alcohol > 6"}</label>
@@ -50,6 +48,10 @@ const Nav = ({
             />
           </div>
         </section>
+      </div>
+      <div className="nav__lower">
+        <Search searchTerm={searchTerm} handleInput={handleInput} />
+        <button className="nav__lower--reset"> ⏪︎ Reset </button>
       </div>
     </section>
   );

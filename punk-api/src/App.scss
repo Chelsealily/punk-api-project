@@ -1,18 +1,18 @@
 .logo {
-    width: 30vw;
+  width: 30vw;
 }
 
 .nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.product-container{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: repeat(5, auto);
-    gap: 20px;
-    padding-bottom: 50px;
+.product-container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(5, auto);
+  gap: 20px;
+  padding-bottom: 170px;
 }

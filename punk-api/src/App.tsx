@@ -76,13 +76,14 @@ function App() {
           getAcid={getAcid}
         />
       </div>
+      <div className="product-container">
       {filteredBeer.map((product) => (
         <CardList
           name={product.name}
           image_url={product.image_url}
           tagline={product.tagline}
         />
-      ))}
+      ))}</div>
       <ScrollToTop smooth color="purple" />
     </section>
   );
