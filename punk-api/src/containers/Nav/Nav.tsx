@@ -9,6 +9,8 @@ const Nav = ({
   getAcid,
   getYear,
 }: FilterListProps) => {
+    const reset = () => window.location.reload()
+
   return (
     <section className="nav">
       <div className="nav__upper">
@@ -51,7 +53,7 @@ const Nav = ({
       </div>
       <div className="nav__lower">
         <Search searchTerm={searchTerm} handleInput={handleInput} />
-        <button className="nav__lower--reset"> ⏪︎ Reset </button>
+        <button className="nav__lower--reset" onClick={reset}> ⏪︎ Reset </button>
       </div>
     </section>
   );
