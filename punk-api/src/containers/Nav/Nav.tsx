@@ -1,6 +1,7 @@
 import Search from "../../components/Search/Search";
 import "./Nav.scss";
 import { FilterListProps } from "../../types/Beer";
+import logo from "../../assets/images/logo.jpeg";
 
 const Nav = ({
   searchTerm,
@@ -17,7 +18,7 @@ const Nav = ({
       <div className="nav__upper">
         <img
           className="logo"
-          src="src/assets/images/logo.jpeg"
+          src={logo}
           alt="Brewdog logo"
         />
       </div>
