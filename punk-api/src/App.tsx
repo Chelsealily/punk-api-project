@@ -1,10 +1,11 @@
 import "./App.scss";
-import { FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Beer } from "./types/Beer";
 import ScrollToTop from "react-scroll-to-top";
 import Nav from "./containers/Nav/Nav";
 import CardList from "./components/CardList/CardList";
 import { BeerExt } from "./types/Beer";
+import RangeInput from "./components/RangeInput/RangeInput";
 
 function App() {
   const [beers, setBeers] = useState<Beer[]>([]);
@@ -13,19 +14,26 @@ function App() {
   const [abv, setAbv] = useState<boolean>(false);
   const [year, setYear] = useState<boolean>(false);
   const [acid, setAcid] = useState<boolean>(false);
-  const [ebc, SetEbc] = useState<boolean>(false);
+  const [ebc, setEbc] = useState<boolean>(false);
+  const [numberOfBeers, setNumberOfBeers] = useState<number>(25);
 
-  const getBeers = async () => {
-    const url = "https://api.punkapi.com/v2/beers?per_page=80";
-    const res = await fetch(url);
+  const getBeers = async (resultNumber: number) => {
+    const url = "https://api.punkapi.com/v2/beers";
+    let urlWithParams = url + `?per_page=${resultNumber}`;
+    const res = await fetch(urlWithParams);
     const data = await res.json();
     setBeers(data);
     setBeersOg(data);
   };
 
   useEffect(() => {
-    getBeers();
-  }, []);
+    getBeers(numberOfBeers);
+  }, [numberOfBeers]);
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const userInput = Number(event.currentTarget.value);
+    setNumberOfBeers(userInput);
+  };
 
   const handleInput = (event: FormEvent<HTMLInputElement>) => {
     const input = event.currentTarget.value.toLowerCase();
@@ -71,7 +79,7 @@ function App() {
     setAcid(!acid);
   };
   const getEbc = () => {
-    SetEbc(!ebc);
+    setEbc(!ebc);
   };
 
   return (
@@ -85,6 +93,15 @@ function App() {
           getAcid={getAcid}
           getEbc={getEbc}
         />
+      </div>
+      <div className="range-input">
+        <RangeInput
+        id="user-range"
+        label={`Number of Beers: ${numberOfBeers}`}
+        min={5}
+        max={80}
+        value={numberOfBeers}
+        onChange={handleInputChange}/>
       </div>
       <div className="product-container">
       {filteredBeer.map((product) => (

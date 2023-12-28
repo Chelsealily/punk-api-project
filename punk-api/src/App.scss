@@ -8,7 +8,18 @@
   justify-content: space-between;
 }
 
+.range-input {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(148, 70, 160);
+  height: 30px;
+  color:white;
+  font-weight: bold;
+  align-items: center
+}
+
 .product-container {
+  padding-top: 30px;
   display: grid;
   justify-content: center;
   align-items: center;
