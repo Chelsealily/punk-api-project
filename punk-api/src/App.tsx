@@ -8,11 +8,12 @@ import { BeerExt } from "./types/Beer";
 
 function App() {
   const [beers, setBeers] = useState<Beer[]>([]);
+  const [beersOg, setBeersOg] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [abv, setAbv] = useState<boolean>(false);
   const [year, setYear] = useState<boolean>(false);
   const [acid, setAcid] = useState<boolean>(false);
-  const [beersOg, setBeersOg] = useState([]);
+  const [ebc, SetEbc] = useState<boolean>(false);
 
   const getBeers = async () => {
     const url = "https://api.punkapi.com/v2/beers?per_page=80";
@@ -52,8 +53,13 @@ function App() {
         (beer: BeerExt) => beer.ph < 4
       );
     }
+    if (ebc) {
+      filteredBeerList = filteredBeerList.filter(
+        (beer: BeerExt) => beer.ebc > 30
+      );
+    }
     setBeers(filteredBeerList);
-  }, [abv, year, acid, beersOg]);
+  }, [abv, year, acid, ebc, beersOg]);
 
   const getAbv = () => {
     setAbv(!abv);
@@ -63,6 +69,9 @@ function App() {
   };
   const getAcid = () => {
     setAcid(!acid);
+  };
+  const getEbc = () => {
+    SetEbc(!ebc);
   };
 
   return (
@@ -74,6 +83,7 @@ function App() {
           getAbv={getAbv}
           getYear={getYear}
           getAcid={getAcid}
+          getEbc={getEbc}
         />
       </div>
       <div className="product-container">

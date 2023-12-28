@@ -18,6 +18,7 @@ export type FilterListProps = {
   getAbv: ChangeEventHandler<HTMLInputElement>;
   getYear: ChangeEventHandler<HTMLInputElement>;
   getAcid: ChangeEventHandler<HTMLInputElement>;
+  getEbc: ChangeEventHandler<HTMLInputElement>;
 };
 
 export type BeerExt = {

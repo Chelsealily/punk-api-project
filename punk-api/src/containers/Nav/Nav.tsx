@@ -8,6 +8,7 @@ const Nav = ({
   getAbv,
   getAcid,
   getYear,
+  getEbc
 }: FilterListProps) => {
     const reset = () => window.location.reload()
 
@@ -45,8 +46,17 @@ const Nav = ({
             <input
               className="checkbox__Ph--box"
               type="checkbox"
-              value="Setacid"
+              value="SetAcid"
               onChange={getAcid}
+            />
+          </div>
+          <div className="checkbox__Ebc">
+            <label className="checkbox__Ebc--label">{"Dark Beers"}</label>
+            <input
+              className="checkbox__Ebc--box"
+              type="checkbox"
+              value="SetEbc"
+              onChange={getEbc}
             />
           </div>
         </section>
