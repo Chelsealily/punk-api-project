@@ -10,6 +10,7 @@ const Search = ({ searchTerm, handleInput }: SearchProps) => {
         placeholder="🔎 Search.."
         value={searchTerm}
         onInput={handleInput}
+        id="search-bar-bar"
       />
     </section>
   );

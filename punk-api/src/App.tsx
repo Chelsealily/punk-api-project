@@ -28,7 +28,7 @@ function App() {
 
   useEffect(() => {
     getBeers(numberOfBeers);
-  }, [numberOfBeers]);
+  }, [numberOfBeers]); 
 
   // Range Input Bar
 
@@ -47,6 +47,8 @@ function App() {
   const filteredBeer = beers.filter((product) =>
     product.name.toLowerCase().includes(searchTerm)
   );
+
+ 
 
   // Filter options 
 
@@ -72,8 +74,10 @@ function App() {
         (beer: BeerExt) => beer.ebc > 30
       );
     }
+   
     setBeers(filteredBeerList);
   }, [abv, year, acid, ebc, beersOg]);
+
 
   const getAbv = () => {
     setAbv(!abv);
@@ -87,6 +91,7 @@ function App() {
   const getEbc = () => {
     setEbc(!ebc);
   };
+  
 
   return (
     <section className="page-container">
