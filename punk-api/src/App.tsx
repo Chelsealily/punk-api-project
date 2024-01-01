@@ -30,10 +30,14 @@ function App() {
     getBeers(numberOfBeers);
   }, [numberOfBeers]);
 
+  // Range Input Bar
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const userInput = Number(event.currentTarget.value);
     setNumberOfBeers(userInput);
   };
+
+  //Search Bar 
 
   const handleInput = (event: FormEvent<HTMLInputElement>) => {
     const input = event.currentTarget.value.toLowerCase();
@@ -43,6 +47,8 @@ function App() {
   const filteredBeer = beers.filter((product) =>
     product.name.toLowerCase().includes(searchTerm)
   );
+
+  // Filter options 
 
   useEffect(() => {
     let filteredBeerList = beersOg;

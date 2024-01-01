@@ -1,23 +1,28 @@
-.beer-card{
-    width:15vw;
-    box-shadow: 5px 5px 10px #888888;
-    height:53vh;
-    text-align: center;
-    background-color: rgb(202, 202, 202);
-    padding-top: 20px;
+.beer-card {
+  width: 27vw;
+  box-shadow: 5px 5px 10px #888888;
+  height: 57vh;
+  text-align: center;
+  background-color: rgb(202, 202, 202);
+  padding-top: 20px;
 }
 
-.beer-card:hover { 
-    background-color: rgb(126, 201, 203);
-    border: 3px solid burlywood;
-  }
+.beer-card:hover {
+  background-color: rgb(126, 201, 203);
+  border: 3px solid burlywood;
+}
 
 .beer-card__pic {
-    height: 30vh;
+  height: 30vh;
 }
 
-h1{
-    font-size: 0.9rem;
-    text-transform: uppercase;
-}   
+h1 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
 
+@media screen and (min-width: 768px) {
+  .beer-card {
+    width: 15vw;
+  }
+}

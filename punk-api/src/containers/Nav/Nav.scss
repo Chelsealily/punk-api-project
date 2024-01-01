@@ -1,20 +1,6 @@
-.nav__middle {
-  padding-top: 170px;
-}
-
-.nav__lower {
-  display: flex;
-  flex-direction: column;
-}
-
-.nav__lower--reset{
-  padding-top: 5px;
-  background-color: white;
-  border: none;
-}
 
 .checkbox {
-  width: 490px;
+  width: 330px;
   padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
@@ -45,3 +31,11 @@
   border: 5px solid rgb(46, 46, 46);
   border-radius: 5%;
 }
+
+@media screen and (min-width: 768px) {
+    
+  .checkbox {
+  width: 470px;
+  align-items: center;
+      }
+  }
