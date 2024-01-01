@@ -1,0 +1,41 @@
+
+.checkbox {
+  width: 330px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: white;
+}
+
+.checkbox__ABV {
+  background-color: rgb(46, 46, 46);
+  border: 5px solid rgb(46, 46, 46);
+  border-radius: 5%;
+}
+
+.checkbox__Classic {
+  background-color: rgb(46, 46, 46);
+  border: 5px solid rgb(46, 46, 46);
+  border-radius: 5%;
+}
+
+.checkbox__Ph {
+  background-color: rgb(46, 46, 46);
+  border: 5px solid rgb(46, 46, 46);
+  border-radius: 5%;
+}
+
+.checkbox__Ebc {
+  background-color: rgb(46, 46, 46);
+  border: 5px solid rgb(46, 46, 46);
+  border-radius: 5%;
+}
+
+@media screen and (min-width: 768px) {
+    
+  .checkbox {
+  width: 470px;
+  align-items: center;
+      }
+  }
