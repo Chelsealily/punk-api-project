@@ -1,21 +1,22 @@
 .logo {
-  width: 30vw;
+  width:30vw;
 }
 
 .nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width:90vw;
 }
 
 .range-input {
   display: flex;
   justify-content: center;
-  background-color: rgb(68, 115, 195);
+  background-color: rgb(170, 91, 176);
   height: 30px;
   color:white;
   font-weight: bold;
-  align-items: center
+  align-items: center;
 }
 
 .product-container {

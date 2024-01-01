@@ -106,6 +106,7 @@ function App() {
       <div className="product-container">
       {filteredBeer.map((product) => (
         <CardList
+          key={product.id}
           name={product.name}
           image_url={product.image_url}
           tagline={product.tagline}
