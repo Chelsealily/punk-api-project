@@ -74,9 +74,7 @@ function App() {
         (beer: BeerExt) => beer.ebc > 30
       );
     }
-    if (filteredBeerList.length<=0){
-      console.log("no results")
-    }
+    
     setBeers(filteredBeerList);
   }, [abv, year, acid, ebc, beersOg]);
 
@@ -93,6 +91,29 @@ function App() {
   const getEbc = () => {
     setEbc(!ebc);
   };
+
+  if (filteredBeer.length<=0){
+    return  <div>
+    <Nav
+      searchTerm={searchTerm}
+      handleInput={handleInput}
+      getAbv={getAbv}
+      getYear={getYear}
+      getAcid={getAcid}
+      getEbc={getEbc}
+    />
+     <div className="range-input">
+        <RangeInput
+        id="user-range"
+        label={`Number of Beers: ${numberOfBeers}`}
+        min={5}
+        max={80}
+        value={numberOfBeers}
+        onChange={handleInputChange}/>
+      </div>
+ 
+  <p className="result-message">✖️ No results found ✖️</p> </div>
+  }
   
 
   return ( 
