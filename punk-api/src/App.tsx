@@ -6,6 +6,7 @@ import Nav from "./containers/Nav/Nav";
 import CardList from "./components/CardList/CardList";
 import { BeerExt } from "./types/Beer";
 import RangeInput from "./components/RangeInput/RangeInput";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [beers, setBeers] = useState<Beer[]>([]);
@@ -94,7 +95,8 @@ function App() {
   };
   
 
-  return (
+  return ( 
+    <BrowserRouter>
     <section className="page-container">
       <div>
         <Nav
@@ -106,6 +108,9 @@ function App() {
           getEbc={getEbc}
         />
       </div>
+      <ScrollToTop smooth color="purple" />
+      <Routes>
+      <Route path="/" element={<section>
       <div className="range-input">
         <RangeInput
         id="user-range"
@@ -123,9 +128,11 @@ function App() {
           image_url={product.image_url}
           tagline={product.tagline}
         />
-      ))}</div>
-      <ScrollToTop smooth color="purple" />
-    </section>
+      ))}</div></section>}/>
+      
+
+    </Routes></section>
+    </BrowserRouter>
   );
 }
 
