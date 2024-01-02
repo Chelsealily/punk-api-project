@@ -31,8 +31,6 @@ export type BeerExt = {
   abv: number;
   ibu: number;
   ebc: number;
-  srm: number;
   ph: number;
-  food_pairing: string[];
 };
 

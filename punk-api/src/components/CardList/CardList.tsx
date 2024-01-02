@@ -15,6 +15,7 @@ const CardList = ({name, image_url, tagline }: CardListProps) => {
       
     </div>
   );
+  
 };
 
 export default CardList;

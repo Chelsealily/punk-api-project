@@ -29,7 +29,7 @@ function App() {
 
   useEffect(() => {
     getBeers(numberOfBeers);
-  }, [numberOfBeers]); 
+  }, [numberOfBeers]);
 
   // Range Input Bar
 
@@ -38,7 +38,7 @@ function App() {
     setNumberOfBeers(userInput);
   };
 
-  //Search Bar 
+  //Search Bar
 
   const handleInput = (event: FormEvent<HTMLInputElement>) => {
     const input = event.currentTarget.value.toLowerCase();
@@ -49,8 +49,7 @@ function App() {
     product.name.toLowerCase().includes(searchTerm)
   );
 
-
-  // Filter options 
+  // Filter options
 
   useEffect(() => {
     let filteredBeerList = beersOg;
@@ -74,10 +73,9 @@ function App() {
         (beer: BeerExt) => beer.ebc > 30
       );
     }
-    
+
     setBeers(filteredBeerList);
   }, [abv, year, acid, ebc, beersOg]);
-
 
   const getAbv = () => {
     setAbv(!abv);
@@ -92,33 +90,13 @@ function App() {
     setEbc(!ebc);
   };
 
-  if (filteredBeer.length<=0){
-    return  <div>
-    <Nav
-      searchTerm={searchTerm}
-      handleInput={handleInput}
-      getAbv={getAbv}
-      getYear={getYear}
-      getAcid={getAcid}
-      getEbc={getEbc}
-    />
-     <div className="range-input">
-        <RangeInput
-        id="user-range"
-        label={`Number of Beers: ${numberOfBeers}`}
-        min={5}
-        max={80}
-        value={numberOfBeers}
-        onChange={handleInputChange}/>
-      </div>
- 
-  <p className="result-message">✖️ No results found ✖️</p> </div>
-  }
-  
 
-  return ( 
-    <BrowserRouter>
-    <section className="page-container">
+// No results message
+
+const reset = () => window.location.reload()
+
+  if (filteredBeer.length <= 0) {
+    return (
       <div>
         <Nav
           searchTerm={searchTerm}
@@ -128,31 +106,69 @@ function App() {
           getAcid={getAcid}
           getEbc={getEbc}
         />
-      </div>
-      <ScrollToTop smooth color="purple" />
-      <Routes>
-      <Route path="/" element={<section>
-      <div className="range-input">
-        <RangeInput
-        id="user-range"
-        label={`Number of Beers: ${numberOfBeers}`}
-        min={5}
-        max={80}
-        value={numberOfBeers}
-        onChange={handleInputChange}/>
-      </div>
-      <div className="product-container">
-      {filteredBeer.map((product) => (
-        <CardList
-          key={product.id}
-          name={product.name}
-          image_url={product.image_url}
-          tagline={product.tagline}
-        />
-      ))}</div></section>}/>
-      
+        <div className="range-input">
+          <RangeInput
+            id="user-range"
+            label={`Number of Beers: ${numberOfBeers}`}
+            min={5}
+            max={80}
+            value={numberOfBeers}
+            onChange={handleInputChange}
+          />
+        </div> 
+        <div className="result">
+        <p className="result-message">✖️ No results found ✖️</p>
+        <button className="result-message--reset" onClick={reset}> ⬅ Go Back </button>
+      </div></div>
+    );
+  }
 
-    </Routes></section>
+  return (
+    <BrowserRouter>
+      <section className="page-container">
+        <div>
+          <Nav
+            searchTerm={searchTerm}
+            handleInput={handleInput}
+            getAbv={getAbv}
+            getYear={getYear}
+            getAcid={getAcid}
+            getEbc={getEbc}
+          />
+        </div>
+        <ScrollToTop smooth color="purple" />
+        <Routes>
+
+          <Route
+            path="/"
+            element={
+              <section>
+                <div className="range-input">
+                  <RangeInput
+                    id="user-range"
+                    label={`Number of Beers: ${numberOfBeers}`}
+                    min={5}
+                    max={80}
+                    value={numberOfBeers}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="product-container">
+                  {filteredBeer.map((product) => (
+                    <CardList
+                      key={product.id}
+                      name={product.name}
+                      image_url={product.image_url}
+                      tagline={product.tagline}
+                    />
+                  ))}
+                </div>
+              </section>
+            }
+          />
+        
+        </Routes>
+      </section>
     </BrowserRouter>
   );
 }
