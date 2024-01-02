@@ -7,7 +7,9 @@ type CardProps = {
 };
 
 const Card = ({ name, image, tagline }: CardProps) => {
+ 
   return (
+    
     <div className="beer-card">
       <img className="beer-card__pic" src={image} alt={name} />
       <h1 className="beer-card__name">{name}</h1>

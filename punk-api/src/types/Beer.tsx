@@ -22,7 +22,6 @@ export type FilterListProps = {
 };
 
 export type BeerExt = {
-  find(arg0: (beer: any) => boolean): unknown;
   id: number;
   name: string;
   image_url: string;

@@ -64,6 +64,7 @@ const Nav = ({
               id="checkbox__Ebc--box"
             /></label>
           </div>
+      
         </section>
       </div>
       <div className="nav__lower">

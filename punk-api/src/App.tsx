@@ -48,7 +48,6 @@ function App() {
     product.name.toLowerCase().includes(searchTerm)
   );
 
- 
 
   // Filter options 
 
@@ -74,7 +73,9 @@ function App() {
         (beer: BeerExt) => beer.ebc > 30
       );
     }
-   
+    if (filteredBeerList.length<=0){
+      console.log("no results")
+    }
     setBeers(filteredBeerList);
   }, [abv, year, acid, ebc, beersOg]);
 
